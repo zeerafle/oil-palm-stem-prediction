@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@300;400;700&display=swap"
+          rel="stylesheet">
+    <title>Oil Palm Stem Disease Prediction</title>
+</head>
+<body>
+<header>
+    <div id="logo">
+        <h1>Oil Palm Stem Disease Prediction</h1>
+        <p>Using Deep Learning and Machine Learning</p>
+    </div>
+    <nav>
+        <ul>
+            <li class="nav-item"><a href="#prediction">Prediction</a></li>
+            <li class="nav-item"><a href="#behind-the-scene">Behind The Scene</a></li>
+            <li class="nav-item"><a href="#">Dark mode</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <article>
+        <section id="prediction">
+            <h2>Prediction</h2>
+            <form action="" method="post" enctype="multipart/form-data">
+                <input type="file" name="image" id="image">
+                <input type="submit" value="Predict">
+            </form>
+        </section>
+        <section id="behind-the-scene">
+            <h2>Behind The Scene</h2>
+            <p>The prediction is executed using the Support Vector Machine classifier. But before that, the image's
+                feature is extracted using pre-trained Convolutional Neural Network model, ResNet50. The extracted
+                feature is then selected using SelectFromModel method from Scikit-learn by using the coefficent value
+                from SVM</p>
+        </section>
+    </article>
+    <aside>
+        <h2>About author</h2>
+        <p>Sam Fareez is a final-year student from Universitas Mulawarman, Indonesia. He is currently pursuing his
+            Bachelor's Degree in
+            Computer Science. He is interested in Machine Learning and Deep Learning.</p>
+    </aside>
+</main>
+<footer>
+    <p>&copy; 2023 Sam Fareez</p>
+</footer>
+</body>
+</html>
