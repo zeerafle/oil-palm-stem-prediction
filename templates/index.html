@@ -6,21 +6,23 @@
                 <h2>Prediction</h2>
                 <form action="{{ url_for('predict_image_file') }}" method='POST' enctype="multipart/form-data">
                     <input type="file" name="file" id="image" onchange="loadFile(event)">
-                    {% if image_path %}
-                        <img id="output" src="{{ image_path }}" alt=""/>
-                    {% else %}
-                        <img id="output" src="" alt=""/>
-                    {% endif %}
-                    <input type="submit" value="Predict">
-                </form>
-                <div id="result">
-                    <h3>Result</h3>
-                    {% if prediction %}
-                        <p id="prediction-result">The image is predicted as <b>{{ prediction }}</b></p>
-                    {% else %}
-                        <p id="prediction-result">Prediction will appear here, please upload the image first</p>
-                    {% endif %}
-                </div>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages[1] %}
+                            <img id="output" src="{{ messages[1] }}" alt=""/>
+                        {% else %}
+                            <img id="output" src="" alt=""/>
+                        {% endif %}
+                        <input type="submit" value="Predict">
+                        </form>
+                        <div id="result">
+                        <h3>Result</h3>
+                        {% if messages[0] %}
+                            <p id="prediction-result">The image is predicted as <b>{{ messages[0] }}</b></p>
+                        {% else %}
+                            <p id="prediction-result">Prediction will appear here, please upload the image first</p>
+                        {% endif %}
+                    {% endwith %}
+                    </div>
             </section>
             <section id="behind-the-scene">
                 <h2>Behind The Scene</h2>
