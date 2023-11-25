@@ -20,7 +20,7 @@ def extract_feature(image) -> np.ndarray:
 def predict(image_path) -> str:
     """
     Predict the image.
-    :param image: batch of images
+    :param image_path: batch of images
     :return: str, prediction result
     """
     # load image
@@ -36,4 +36,4 @@ def predict(image_path) -> str:
 
     # decode prediction result
     # normal if the result 0, otherwise infected
-    return 'Normal' if not prediction else 'Infected'
+    return 'Normal' if not prediction[0] else 'Infected'
